@@ -1,0 +1,197 @@
+<?php $address = 'Carretera Pola de Programadores, 33209 Gijón';
+$tel = '98522';
+$movil = '604 22 06 17'; ?>
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Red Panda | Academia Web</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <div class="topnav">
+        <a href="tel:985222222">📞
+            <?php echo $tel; ?>
+        </a>
+        <a href="tel:698522222">📱
+            <?php echo $movil; ?>
+        </a>
+    </div>
+
+    <header class="header">
+        <img src="img/redpanda-logo.png" alt="Logo Red Panda" class="logo" style="width:250px;">
+
+        <h1>Red Panda</h1>
+
+
+
+        <nav class="nav-header">
+            <ul>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Campus</a></li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <main class="main-container">
+
+        <!-- CURSOS -->
+        <section class="card">
+            <h2>Cursos</h2>
+
+            <article class="curso html">
+                <h3>HTML5</h3>
+                <p>
+                    En Red Panda aprendes HTML, CSS y JavaScript desde cero absoluto, sin conocimientos previos.
+                    Explicamos cada concepto como si fuera la primera vez: desde crear tu primera página HTML, darle
+                    estilos increíbles con CSS hasta hacerla completamente interactiva con JavaScript (botones,
+                    formularios dinámicos, animaciones).
+
+                    Nuestro método probado:</p>
+                <ul>
+                    <li> → Proyectos reales desde el día 1 que construyes tú mismo</li>
+
+                    <li> → Código que funciona inmediatamente en cualquier navegador</li>
+
+                    <li>→ Mentores expertos resolviendo tus dudas de Html,Css y Javascript en el momento</li>
+                </ul>
+                <button>Ver extracto</button>
+            </article>
+
+            <article class="curso css">
+                <h3>CSS3</h3>
+                <p>
+                    Domina estilos, layouts, Flexbox y Grid para diseños profesionales.
+                </p>
+                <button>Descargar temario</button>
+            </article>
+
+            <article class="curso js">
+                <h3>JavaScript</h3>
+                <p>
+                    Aprende a programar interactividad y lógica para la web.
+                </p>
+                <button>Empezar</button>
+            </article>
+        </section>
+
+        <!-- Sidebar -->
+        <aside class="card video">
+            <img src="img/redpanda-aprende.png" alt="" style="width:350px;">
+
+            <h2>Clase gratuita</h2>
+
+            <iframe src="https://www.youtube.com/embed/BcGAPkjt_IE" title="Clase HTML CSS JS">
+            </iframe>
+
+            <p>Descubre cómo empezar en el desarrollo web paso a paso.</p>
+            <button>Ver clase</button>
+        </aside>
+        <!-- CURSOS 2-->
+        <section class="card">
+            <h2>Cursos</h2>
+
+            <article class="curso python">
+                <h3>Python</h3>
+                <p>
+                    En Red Panda aprendes Python desde el principio absoluto, sin conocimientos previos. Explicamos cada
+                    concepto como si fuera la primera vez: desde instalar Python hasta crear tus primeros programas
+                    interactivos. <br>
+
+                    Nuestro método probado:
+                <ul>
+                    <li> → Clases 100% prácticas, sin teoría interminable</li>
+
+                    <li> → Ejercicios reales que ves funcionar al instante</li>
+
+                    <li> → Profesores que responden tus dudas en vivo</li>
+                </ul>
+
+
+                Proyectos finales para tu portfolio (¡desde el día 1!)
+                </p>
+                <button>Ver extracto</button>
+            </article>
+
+        </section>
+
+        <!-- Sidebar -->
+        <aside class="card video cursos">
+
+            <ul>
+                <li> Html Css & Js</li>
+
+                <li> Python</li>
+
+                <li> Php</li>
+                <li> React</li>
+
+                <li> Node</li>
+            </ul>
+            <img src="img/redpanda-logo1 br.png" alt="" style="width:150px;">
+
+            <h2>Clase gratuita</h2>
+
+
+
+
+
+        </aside>
+
+    </main>
+
+    <footer class="footer-grid">
+
+        <!-- COLUMNA IZQUIERDA: NAV -->
+        <nav class="footer-nav">
+            <ul class="nav-footer">
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Cursos</a></li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+        </nav>
+
+        <!-- COLUMNA CENTRO: DATOS -->
+        <div class="footer-datos">
+            <h4>Red Panda</h4>
+            <address>
+                Carretera Pola de Programadores,<br>
+                33209 Gijón
+            </address>
+
+            <p>
+                <a href="tel:985222222">
+                    <?php echo $tel; ?>
+                </a> |
+                <a href="tel:698522222">
+                    <?php echo $movil; ?>
+                </a>
+            </p>
+        </div>
+
+        <!-- COLUMNA DERECHA: HORARIO -->
+        <div class="footer-horario">
+            <h4>Nuestro horario</h4>
+            <ul>
+                <li>Lunes a Viernes: 9:00 – 14:00</li>
+                <li>Lunes a Viernes: 16:00 – 20:00</li>
+            </ul>
+        </div>
+
+        <!-- COPYRIGHT -->
+        <p class="footer-copy">
+            &copy; 2026 Red Panda — Todos los derechos reservados
+        </p>
+
+    </footer>
+
+
+</body>
+
+</html>
