@@ -36,6 +36,7 @@ $movil = '604 22 06 17'; ?>
             <ul>
                 <li><a href="#">Inicio</a></li>
                 <li><a href="campus.php">Campus</a></li>
+                <li><a href="newsletter.php">Newsletter</a></li>
                 <li><a href="#">Contacto</a></li>
             </ul>
         </nav>
