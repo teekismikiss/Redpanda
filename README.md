@@ -42,4 +42,3 @@ Redpanda/
     └── inde
 ```
 
-# Redpanda
