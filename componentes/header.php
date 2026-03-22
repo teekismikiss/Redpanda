@@ -25,6 +25,8 @@
                 <li><a href="campus.php">Campus</a></li>
                 <li><a href="newsletter.php">Newsletter</a></li>
                 <li><a href="contacto.php">Contacto</a></li>
+                <li><a href="creaUsu.php">Login</a></li>
+                <li><a href="aluTablon.php">Tablon</a></li>
             </ul>
         </nav>
     </header>

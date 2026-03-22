@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editor editable mejorado</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 20px auto; padding: 20px; }
+        [contenteditable="true"] { border: 2px dashed #E68A4F; padding: 10px; border-radius: 5px; background-color: #f9f9f9; }
+        #estadoGuardado { font-size: 1.25rem; color: #555; margin-left: 10px; }
+        button { background-color: #85F274; color: white; padding: 8px 12px; border: none; border-radius: 4px; cursor: pointer; margin: 5px 0; }
+        button:hover { background-color: #45a049; }
+    </style>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Mis apuntes</h1>
+
+    <p>
+        Escribe tu nota en el recuadro. Se guardará automáticamente en tu navegador.
+        <span id="estadoGuardado">Sin cambios</span>
+    </p>
+
+    <div id="notaPersistente" contenteditable="true" style="min-height:120px;">
+        Escribe aquí tu nota...
+    </div>
+
+    <div style="margin-top:10px;">
+        <button id="btnGuardar">💾 Guardar ahora</button>
+        <button id="btnLimpiar">🗑️ Limpiar nota</button>
+        <button id="btnExportar">⬇️ Exportar como archivo</button>
+    </div>
+
+    <script>
+        const CLAVE_STORAGE = 'notaEditada_v2';
+        const nota = document.getElementById('notaPersistente');
+        const estado = document.getElementById('estadoGuardado');
+        const btnGuardar = document.getElementById('btnGuardar');
+        const btnLimpiar = document.getElementById('btnLimpiar');
+        const btnExportar = document.getElementById('btnExportar');
+
+        let timerAutosave = null;
+        let hayCambiosPendientes = false;
+
+        // Cargar nota al iniciar
+        window.addEventListener('load', () => {
+            const contenidoGuardado = localStorage.getItem(CLAVE_STORAGE);
+            if (contenidoGuardado) {
+                nota.innerHTML = contenidoGuardado;
+                estado.textContent = 'Cargado desde el navegador';
+            } else {
+                estado.textContent = 'Sin cambios';
+            }
+        });
+
+        // Marcar cambios y programar auto-guardado
+        nota.addEventListener('input', () => {
+            hayCambiosPendientes = true;
+            estado.textContent = 'Escribiendo...';
+            if (timerAutosave) clearTimeout(timerAutosave);
+
+            timerAutosave = setTimeout(() => {
+                guardarEnLocalStorage();
+            }, 1000); // guarda 1s después de parar de escribir
+        });
+
+        // Guardar manualmente
+        btnGuardar.addEventListener('click', () => {
+            guardarEnLocalStorage();
+        });
+
+        // Limpiar nota
+        btnLimpiar.addEventListener('click', () => {
+            nota.innerHTML = '';
+            localStorage.removeItem(CLAVE_STORAGE);
+            estado.textContent = 'Nota vacía';
+            hayCambiosPendientes = false;
+        });
+
+        // Exportar como archivo .html sencillo
+        btnExportar.addEventListener('click', () => {
+            const contenido = nota.innerHTML;
+            const blob = new Blob([contenido], { type: 'text/html;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'mi-nota.html';
+            a.click();
+            URL.revokeObjectURL(url);
+        });
+
+        function guardarEnLocalStorage() {
+            const contenido = nota.innerHTML.trim();
+            if (contenido === '') {
+                estado.textContent = 'Nada que guardar';
+                hayCambiosPendientes = false;
+                return;
+            }
+
+            try {
+                localStorage.setItem(CLAVE_STORAGE, contenido);
+                estado.textContent = 'Cambios guardados';
+                hayCambiosPendientes = false;
+                console.log('Auto-guardado realizado');
+            } catch (error) {
+                console.error('Error al guardar:', error);
+                estado.textContent = 'Error al guardar';
+            }
+        }
+
+        // Aviso si se intenta cerrar con cambios sin guardar
+        window.addEventListener('beforeunload', (e) => {
+            if (hayCambiosPendientes) {
+                e.preventDefault();
+                e.returnValue = '';
+            }
+        });
+    </script>
+</body>
+</html>
