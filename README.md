@@ -5,6 +5,17 @@ Academia Red Panda  - Plataforma Web de Formación en Programación
 
 _--------- 8/04/26
 
+
+
+
+```html
+<button onclick="setColor('red')">Texto rojo</button>
+```
+```js
+function setColor(color) {
+  document.execCommand("foreColor", false, color);
+}
+```
 🧩 1. Añade el botón
 
 Dentro de tu barra (toolbar), agrega esto:
