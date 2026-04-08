@@ -24,7 +24,7 @@ Esto abre un selector de color y aplica el que elijas.
 
 > [!WARNING]
 
-execCommand es una API antigua, pero funciona bien para proyectos simples.
+> execCommand es una API antigua, pero funciona bien para proyectos simples.
 Si más adelante quieres algo más potente (tipo editores modernos), habría que usar librerías como:
 
 Quill
