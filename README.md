@@ -1,12 +1,11 @@
 # Redpanda
 
-Academia Red Panda  - Plataforma Web de Formación en Programación
- Un sitio especializada en enseñanza práctica de tecnologías web desde cero. Incluye landing principal, newsletter, campus y formulario de contacto con RGPD.
-
-_--------- 8/04/26
 
 
+--------- 8/04/26
 
+
+[!NOTE]
 
 ```html
 <button onclick="setColor('red')">Texto rojo</button>
