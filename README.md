@@ -5,7 +5,8 @@
 --------- 8/04/26
 
 
->[!NOTE]
+> [!TIP]
+> Añadir al tablon un boton para escribir en rojo
 
 ```html
 <button onclick="setColor('red')">Texto rojo</button>
@@ -15,32 +16,13 @@ function setColor(color) {
   document.execCommand("foreColor", false, color);
 }
 ```
-🧩 1. Añade el botón
-
-Dentro de tu barra (toolbar), agrega esto:
-
-<button onclick="setColor('red')">Texto rojo</button>
-⚙️ 2. Añade la función en JavaScript
-function setColor(color) {
-  document.execCommand("foreColor", false, color);
-}
-✅ Resultado
-
-Ahora podrás:
-
-Seleccionar una palabra o frase
-Pulsar "Texto rojo"
-Y el texto se pondrá en rojo 🔴
-🎨 OPCIONAL: selector de colores
-
-Si quieres algo más avanzado (como elegir cualquier color):
 
 Botón tipo selector:
 <input type="color" onchange="setColor(this.value)">
 
 Esto abre un selector de color y aplica el que elijas.
 
-⚠️ Nota
+> [!WARNING]
 
 execCommand es una API antigua, pero funciona bien para proyectos simples.
 Si más adelante quieres algo más potente (tipo editores modernos), habría que usar librerías como:
