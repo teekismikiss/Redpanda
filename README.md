@@ -5,7 +5,7 @@
 --------- 8/04/26
 
 
-[!NOTE]
+>[!NOTE]
 
 ```html
 <button onclick="setColor('red')">Texto rojo</button>
