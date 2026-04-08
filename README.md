@@ -22,14 +22,14 @@ Botón tipo selector:
 
 Esto abre un selector de color y aplica el que elijas.
 
-> [!WARNING]
 
+> [!WARNING]
 > execCommand es una API antigua, pero funciona bien para proyectos simples.
 Si más adelante quieres algo más potente (tipo editores modernos), habría que usar librerías como:
 
-Quill
-Slate
-TipTap
+- Quill
+- Slate
+- TipTap
 
 
 
