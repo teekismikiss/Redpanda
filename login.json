@@ -1,5 +1,12 @@
-{
-"usuario":"123",
-"contra":"123"
-
-}
+[
+  {
+    "usuario": "123",
+    "contra": "123",
+    "rol": "admin"
+  },
+  {
+    "usuario": "asd",
+    "contra": "asd",
+    "rol": "alum"
+  }
+]
