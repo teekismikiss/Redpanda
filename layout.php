@@ -7,12 +7,19 @@ $tel     = $datos['tel'];
 $movil   = $datos['movil'];
 $horario = $datos['horario'];
 
+// Usamos la misma carpeta de sesiones en todas las paginas.
+$sessionPath = __DIR__ . '/tmp_sessions';
+if (!is_dir($sessionPath)) {
+    mkdir($sessionPath, 0777, true);
+}
+
 if (session_status() === PHP_SESSION_NONE) {
+    session_save_path($sessionPath);
     session_start();
 }
 
 if (isset($_SESSION['usuario'])) {
-    if ($_SESSION['usuario'] === 'admin') {
+    if ($_SESSION['usuario'] === 'profe' || $_SESSION['usuario'] === 'alum') {
         echo ' <a href="logout.php" class="btnSave">LogOut</a>';
         
     }

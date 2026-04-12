@@ -1,38 +1,7 @@
 # Redpanda
 
-
-
---------- 8/04/26
-
-
-> [!TIP]
-> Añadir al tablon un boton para escribir en rojo
-
-```html
-<button onclick="setColor('red')">Texto rojo</button>
-```
-```js
-function setColor(color) {
-  document.execCommand("foreColor", false, color);
-}
-```
-
-Botón tipo selector:
-<input type="color" onchange="setColor(this.value)">
-
-Esto abre un selector de color y aplica el que elijas.
-
-
-> [!WARNING]
-> execCommand es una API antigua, pero funciona bien para proyectos simples.
-Si más adelante quieres algo más potente (tipo editores modernos), habría que usar librerías como:
-
-- Quill
-- Slate
-- TipTap
-
-
-
+Academia Red Panda  - Plataforma Web de Formación en Programación
+ Un sitio especializada en enseñanza práctica de tecnologías web desde cero. Incluye landing principal, newsletter, campus y formulario de contacto con RGPD.
 
 
 --------------16/03/26
