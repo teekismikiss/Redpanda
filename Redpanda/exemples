@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Editor de Texto</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background: #f5f5f5;
+    }
+
+    .toolbar button {
+      margin: 5px;
+      padding: 8px 12px;
+      cursor: pointer;
+    }
+
+    #editor {
+      border: 1px solid #ccc;
+      background: white;
+      padding: 10px;
+      min-height: 200px;
+    }
+
+    .highlight {
+      background-color: yellow;
+    }
+
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    li input {
+      margin-right: 8px;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Editor de Texto</h2>
+
+<div class="toolbar">
+  <button onclick="format('bold')">Negrita</button>
+  <button onclick="format('italic')">Cursiva</button>
+  <button onclick="format('underline')">Subrayado</button>
+  <button onclick="highlightText()">Highlight</button>
+  <button onclick="addChecklist()">Checklist</button>
+  <button onclick="saveText()">Guardar</button>
+  <button onclick="clearText()">Borrar</button>
+</div>
+
+<div id="editor" contenteditable="true"></div>
+
+<script>
+  const editor = document.getElementById("editor");
+
+  // Formato básico
+  function format(command) {
+    document.execCommand(command, false, null);
+  }
+
+  // Highlight personalizado
+  function highlightText() {
+    document.execCommand("backColor", false, "yellow");
+  }
+
+  // Añadir checklist
+  function addChecklist() {
+    const li = document.createElement("li");
+
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+
+    const span = document.createElement("span");
+    span.contentEditable = true;
+    span.innerText = "Nueva tarea";
+
+    li.appendChild(checkbox);
+    li.appendChild(span);
+
+    let ul = editor.querySelector("ul");
+    if (!ul) {
+      ul = document.createElement("ul");
+      editor.appendChild(ul);
+    }
+
+    ul.appendChild(li);
+  }
+
+  // Guardar en localStorage
+  function saveText() {
+    localStorage.setItem("editorContent", editor.innerHTML);
+    alert("Contenido guardado");
+  }
+
+  // Cargar al iniciar
+  window.onload = function() {
+    const saved = localStorage.getItem("editorContent");
+    if (saved) {
+      editor.innerHTML = saved;
+    }
+  }
+
+  // Borrar contenido
+  function clearText() {
+    if (confirm("¿Seguro que quieres borrar todo?")) {
+      editor.innerHTML = "";
+      localStorage.removeItem("editorContent");
+    }
+  }
+</script>
+
+</body>
+</html>
